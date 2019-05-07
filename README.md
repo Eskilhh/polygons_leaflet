@@ -5,7 +5,7 @@
  - flask_cors
 
 ## Plugins used
--[https://github.com/aratcliffe/Leaflet.contextmenu](example).
+-[https://github.com/aratcliffe/Leaflet.contextmenu](example)
 
   [example]: https://github.com/aratcliffe/Leaflet.contextmenu
 
