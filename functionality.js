@@ -90,7 +90,7 @@ function addLayers(feature, callback) {
 function checkExistsLayers(feature_0) {
     var result = false
     for (var i = 0; i < featuresSelected.length; i++) {
-        if (feature_0.geometry.coordinates == featuresSelected[i].feature.geometry.coordinates) {
+        if (feature_0.geometry.coordinates == featuresSelected[i].feature.geometry.coordinates) { // Again, leaflet_ID should be used
 	            result = true;
 	            break;
 	    }

@@ -67,7 +67,7 @@ function sendOrder(message){
 			updatePolygons(initialize, json)
 			initialize = false
 		}
-		return json;
+		//return json;
 	});
 }
 
