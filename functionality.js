@@ -1,12 +1,11 @@
 
 var polygons = new Array();
 
-function updatePolygons(first, json){
-	if (first != true){
+function updatePolygons(init, json){
+	if (init != true){
 		mymap.removeLayer(geojson)
 		polygons = new Array();
 		featuresSelected = []
-        arrayBounds = []
 
 	}else{
 		$.each(json.features, function(index, feature) {
@@ -53,20 +52,9 @@ function selectFeature(e) {
 
     if (checkExistsLayers(feature)) {
         removerlayers(feature, setStyleLayer, layer, stylelayer.defecto)
-        removeBounds(layer)
     } else{
     	addLayers(feature, setStyleLayer, layer, stylelayer.highlight)
-        addBounds(layer)
     }
-}
-
-var arrayBounds = [];
-function addBounds(layer) {
-    arrayBounds.push(layer.getBounds())
-}
-
-function removeBounds(layer) {
-    arrayBounds = arrayBounds.filter(bounds => bounds != layer.getBounds())
 }
 
 function setStyleLayer(layer, styleSelected) {

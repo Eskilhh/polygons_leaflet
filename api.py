@@ -31,9 +31,11 @@ def writeGeojson(polygons):
 	exists = False
 	for polygon in polygons:
 		for existing_feature in existing_features:
+			
 			if polygon == existing_feature:
 				existing_features.remove(existing_feature)	
 				exists = True
+
 		if not exists:
 			new_features.append(Feature(geometry=Polygon(polygon)))
 		exists = False
@@ -63,21 +65,14 @@ def readGeojson(init):
 			return False
 	return data
 
-# Returns a shapely polygon object
-def createShapelyPolygon(polygon):
-	polypoints = []
-	for points in polygon[0]:
-		polypoints.append([points[0],points[1]])
-	return Pol(polypoints)
-
 # Returns True if polygons share area, false if not. Shapely objects as input
 def checkSharedArea(polygon_1, polygon_2):
 	return polygon_1.intersects(polygon_2)
 
 # Returns union between two polygons if any and replaces the selected polygons
 def union(polygon_1, polygon_2):
-	polygon1 = createShapelyPolygon(polygon_1)
-	polygon2 = createShapelyPolygon(polygon_2)
+	polygon1 = Pol(polygon_1[0])
+	polygon2 = Pol(polygon_2[0])
 	
 	if not checkSharedArea(polygon1, polygon2):
 		return False
@@ -88,8 +83,8 @@ def union(polygon_1, polygon_2):
 
 # Returns intersection between two polygons if any and replaces the selected polygons
 def intersection(polygon_1, polygon_2):
-	polygon1 = createShapelyPolygon(polygon_1)
-	polygon2 = createShapelyPolygon(polygon_2)
+	polygon1 = Pol(polygon_1[0])
+	polygon2 = Pol(polygon_2[0])
 	
 	if not checkSharedArea(polygon1, polygon2):
 		return False
