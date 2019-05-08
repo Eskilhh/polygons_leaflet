@@ -81,7 +81,7 @@ function removerlayers(feature, callback) {
 function addLayers(feature, callback) {
     featuresSelected.push({
         type: feature.geometry.type,
-        coordinates: feature.geometry.coordinates,
+        coordinates: feature.geometry.coordinates, //Leaflet_ID may be better to use.
         feature: feature
     })
     callback(arguments[2], arguments[3])

@@ -6,7 +6,7 @@ function createMessage(op){
 		};
 	}else if((op == "intersect")||(op == "union")){
 		if(featuresSelected.length != 2){
-			console.log("Intersect operation needs exactly 2 selected polygons, ",featuresSelected.length," polygon(s) selected")
+			console.log(op, " operation needs exactly 2 selected polygons, ",featuresSelected.length," polygon(s) selected")
 			return false
 		}
 		var polygon_1 = featuresSelected[0].feature.geometry.coordinates
